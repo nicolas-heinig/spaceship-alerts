@@ -1,68 +1,111 @@
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
+html {
+	background: url(https://i.ytimg.com/vi/4gmrHQa7fEg/maxresdefault.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: "Work Sans", sans-serif;
+}
 
-  html {
-    background: url(https://i.ytimg.com/vi/4gmrHQa7fEg/maxresdefault.jpg)
-      no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: "Work Sans", sans-serif;
-  }
-
-  #container {
+.container {
     display: flex;
-    width: auto;
     flex-wrap: wrap;
-    align-items: flex-start;
-  }
+    width: 49vw;
+	padding: 20px 15px;
+	overflow: hidden;
+    height: 80vh;
+    position: fixed;
+    border: 2px solid #ff9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset, 0 0 10px rgba(255, 255, 0, 0.5);
+	background-color: rgba(0,0,0,0.66);
+	transform-origin: top left;
+}
 
-  .card {
-    border-radius: 5px;
-    padding: 5px;
-    margin: 20px 10px;
-    box-shadow: 0 4px 8px 0 white;
+.container-left {
+    transform-origin: top left;
+    transform: matrix3d(1.2, 0.2, 0, 0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
+    left: 1vw;
+    top: 1vh;
+}
+
+.container-right {
+    transform-origin: top right;
+    transform: matrix3d(1.2, -0.2, 0, -0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
+    right: 1vw;
+    top: 1vh;
+}
+
+.card {
+    position: relative;
+	width: 100%;
+    padding: 9px 14px 9px 2.75rem;
+    margin-bottom: 20px;
     transition: 0.3s;
-  }
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset, 0 0 10px rgba(255, 255, 255, 0.5);
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    color: #fff;
+	font-family: monospace;
+    font-size: 18px;
+}
 
-  .card:hover {
-    box-shadow: 0 8px 16px 0 white;
-  }
+.card::before {
+    position: absolute;
+    left: 0.4rem;
+    top: 0.8rem;
+    margin-top: -1rem;
+    width: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
 
-  .info {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
-  }
+.info {
+    color: #ff9;
+    border-color: #ff9;
+	box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset, 0 0 10px rgba(255, 255, 0, 0.5);
+	text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
 
-  .alert {
-    color: #856404;
-    background-color: #fff3cd;
-    border-color: #ffeeba;
-  }
+.info::before {
+	content: "✔";
+}
 
-  .danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-  }
+.alert {
+    color: #f90;
+    border-color: #f90;
+    box-shadow: 0 0 10px rgba(255, 128, 0, 0.5) inset, 0 0 10px rgba(255, 128, 0, 0.5);
+	text-shadow: 0 0 10px rgba(255, 128, 0, 0.5);
+}
 
-  pre {
-    font-size: inherit;
-    color: inherit;
-    border: initial;
-    padding: initial;
-    font-family: inherit;
-  }
+.alert::before {
+	content: "⚠️";
+}
+
+.danger {
+    color: #f66;
+    border-color: #f66;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5) inset, 0 0 10px rgba(255, 0, 0, 0.5);
+	text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.danger::before {
+	content: "☠";
+}
+
 </style>
 
-<div id="container"></div>
+<div id="alerts" class="container container-left"></div>
+<div id="log" class="container container-right"></div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
   const socket = io();
-  const container = document.getElementById("container");
+  const container = document.getElementById("alerts");
 
   socket.on("send_dashboard", (data) => {
     let card = document.createElement("div");
@@ -74,4 +117,6 @@
     card.appendChild(pre);
     container.insertBefore(card, container.childNodes[0]);
   });
+
+
 </script>
