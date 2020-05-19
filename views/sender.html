@@ -1,0 +1,44 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<h1>Sender View</h1>
+
+<label for="select">Type</label>
+<br />
+<select id="select">
+  <option value="info">Info</option>
+  <option value="alert">Alert</option>
+  <option value="danger">Danger</option>
+</select>
+<br />
+
+<label for <label for="textbox">Message</label>
+<br />
+<textarea type="text" id="box" rows="4" cols="50"></textarea>
+<br />
+
+<br />
+<br />
+
+<button id="input" onclick="send()">
+  Send!
+</button>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io.connect("http://localhost");
+  const selectBox = document.getElementById("select");
+  const textBox = document.getElementById("box");
+
+  const send = () => {
+    let payload = {
+      type: selectBox.value,
+      text: textBox.value,
+    };
+
+    socket.emit("send_message", payload);
+
+    selectBox.value = "info";
+    textBox.value = "";
+  };
+</script>
