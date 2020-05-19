@@ -20,7 +20,8 @@ io.on("connection", (socket) => {
     console.log("THERE GOES A CONNECTION");
   });
 
-  socket.on("send_message", (data) => {
+  socket.on("send_sender", (data) => {
     console.log(data);
+    socket.broadcast.emit("send_dashboard", data);
   });
 });
