@@ -3,6 +3,12 @@
 </head>
 <h1>Sender View</h1>
 
+<label for="room">Room ID</label>
+<br />
+<input id="room" />
+<br />
+<br />
+
 <label for="select">Type</label>
 <br />
 <select id="select">
@@ -27,11 +33,13 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
   const socket = io();
+  const roomBox = document.getElementById("room");
   const selectBox = document.getElementById("select");
   const textBox = document.getElementById("box");
 
   const send = () => {
     let payload = {
+      room: roomBox.value,
       type: selectBox.value,
       text: textBox.value,
     };

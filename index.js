@@ -16,12 +16,12 @@ app.get("/sender", (req, res) => {
 io.on("connection", (socket) => {
   console.log("THERES A CONNECTION");
 
-  socket.on("disconnect", () => {
-    console.log("THERE GOES A CONNECTION");
-  });
+  socket.on("join_room", (room) => socket.join(room));
+
+  socket.on("disconnect", () => console.log("THERE GOES A CONNECTION"));
 
   socket.on("send_sender", (data) => {
     console.log(data);
-    socket.broadcast.emit("send_dashboard", data);
+    socket.to(data.room).emit("send_dashboard", data);
   });
 });

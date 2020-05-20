@@ -1,27 +1,42 @@
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
 
-@keyframes zoom {
-  0% {transform: scale(1); opacity: 0;}
-  5% {transform: scale(1); opacity: 0.5;}
-  95% {transform: scale(2); opacity: 0.5;}
-  100% {transform: scale(2); opacity: 0;}
-}
+  @keyframes zoom {
+    0% {
+      transform: scale(1);
+      opacity: 0;
+    }
+    5% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    95% {
+      transform: scale(2);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
 
-html {
-	background: url(https://www.fegefeuer-larp.de/wp-content/uploads/2020/05/space.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	font-family: "Work Sans", sans-serif;
-}
+  html {
+    background: url(https://www.fegefeuer-larp.de/wp-content/uploads/2020/05/space.jpg)
+      no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Work Sans", sans-serif;
+  }
 
-body {
+  body {
     overflow: hidden;
-}
+  }
 
-html::before, body::before, body::after {
+  html::before,
+  body::before,
+  body::after {
     content: "";
     height: 100vh;
     width: 100vw;
@@ -32,71 +47,108 @@ html::before, body::before, body::after {
     top: 0;
     background-position: center center;
     z-index: -1;
-}
+  }
 
-body::before, body::after {
-  animation-name: zoom;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in;
-  animation-delay: 0s;
-}
+  body::before,
+  body::after {
+    animation-name: zoom;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+  }
 
-body::after {
-  animation-delay: 2s;
-}
+  body::after {
+    animation-delay: 2s;
+  }
 
-html::before {
-  transform: scale(2);
-  z-index: 0;
-}
+  html::before {
+    transform: scale(2);
+    z-index: 0;
+  }
 
-.container {
+  .container {
     display: flex;
     flex-wrap: wrap;
     width: 49vw;
-	padding: 20px 15px;
-	overflow: hidden;
+    padding: 20px 15px;
+    overflow: hidden;
     height: 80vh;
     position: fixed;
     border: 2px solid #ff9;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset, 0 0 10px rgba(255, 255, 0, 0.5);
-	background-color: rgba(0,0,0,0.66);
-	transform-origin: top left;
-}
-
-.container-left {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset,
+      0 0 10px rgba(255, 255, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.66);
     transform-origin: top left;
-    transform: matrix3d(1.2, 0.2, 0, 0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
+  }
+
+  .container-left {
+    transform-origin: top left;
+    transform: matrix3d(
+      1.2,
+      0.2,
+      0,
+      0.0006,
+      0,
+      0.99,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1
+    );
     left: 1vw;
     top: 1vh;
-}
+  }
 
-.container-right {
+  .container-right {
     transform-origin: top right;
-    transform: matrix3d(1.2, -0.2, 0, -0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
+    transform: matrix3d(
+      1.2,
+      -0.2,
+      0,
+      -0.0006,
+      0,
+      0.99,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1
+    );
     right: 1vw;
     top: 1vh;
-}
+  }
 
-.card {
+  .card {
     position: relative;
-	width: 100%;
+    width: 100%;
     padding: 9px 14px 9px 2.75rem;
     margin-bottom: 20px;
     transition: 0.3s;
     background-color: transparent;
     border: 2px solid #fff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset, 0 0 10px rgba(255, 255, 255, 0.5);
-	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset,
+      0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     color: #fff;
-	font-family: monospace;
+    font-family: monospace;
     font-size: 18px;
-}
+  }
 
-.card::before {
+  .card::before {
     position: absolute;
     left: 0.4rem;
     top: 0.8rem;
@@ -104,40 +156,43 @@ html::before {
     width: 2rem;
     font-size: 2rem;
     text-align: center;
-}
+  }
 
-.info {
+  .info {
     color: #ff9;
     border-color: #ff9;
-	box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset, 0 0 10px rgba(255, 255, 0, 0.5);
-	text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
-}
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset,
+      0 0 10px rgba(255, 255, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+  }
 
-.info::before {
-	content: "✔";
-}
+  .info::before {
+    content: "✔";
+  }
 
-.alert {
+  .alert {
     color: #f90;
     border-color: #f90;
-    box-shadow: 0 0 10px rgba(255, 128, 0, 0.5) inset, 0 0 10px rgba(255, 128, 0, 0.5);
-	text-shadow: 0 0 10px rgba(255, 128, 0, 0.5);
-}
+    box-shadow: 0 0 10px rgba(255, 128, 0, 0.5) inset,
+      0 0 10px rgba(255, 128, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 128, 0, 0.5);
+  }
 
-.alert::before {
-	content: "⚠️";
-}
+  .alert::before {
+    content: "⚠️";
+  }
 
-.danger {
+  .danger {
     color: #f66;
     border-color: #f66;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5) inset, 0 0 10px rgba(255, 0, 0, 0.5);
-	text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-}
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5) inset,
+      0 0 10px rgba(255, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
 
-.danger::before {
-	content: "☠";
-}
+  .danger::before {
+    content: "☠";
+  }
 </style>
 
 <div id="alerts" class="container container-left"></div>
@@ -147,6 +202,10 @@ html::before {
 <script>
   const socket = io();
   const container = document.getElementById("alerts");
+
+  const room = prompt("Please enter a Room ID");
+
+  socket.on("connect", () => socket.emit("join_room", room));
 
   socket.on("send_dashboard", (data) => {
     let card = document.createElement("div");
@@ -158,6 +217,4 @@ html::before {
     card.appendChild(pre);
     container.insertBefore(card, container.childNodes[0]);
   });
-
-
 </script>
