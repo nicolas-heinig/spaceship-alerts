@@ -1,12 +1,54 @@
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
+
+@keyframes zoom {
+  0% {transform: scale(1); opacity: 0;}
+  5% {transform: scale(1); opacity: 0.5;}
+  95% {transform: scale(2); opacity: 0.5;}
+  100% {transform: scale(2); opacity: 0;}
+}
+
 html {
-	background: url(https://i.ytimg.com/vi/4gmrHQa7fEg/maxresdefault.jpg) no-repeat center center fixed;
+	background: url(https://www.fegefeuer-larp.de/wp-content/uploads/2020/05/space.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	font-family: "Work Sans", sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+html::before, body::before, body::after {
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-image: url(https://fegefeuer-larp.de/wp-content/uploads/2020/05/space.png);
+    background-size: cover;
+    left: 0;
+    top: 0;
+    background-position: center center;
+    z-index: -1;
+}
+
+body::before, body::after {
+  animation-name: zoom;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+}
+
+body::after {
+  animation-delay: 2s;
+}
+
+html::before {
+  transform: scale(2);
+  z-index: 0;
 }
 
 .container {
