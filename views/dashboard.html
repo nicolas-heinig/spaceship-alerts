@@ -95,7 +95,6 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset, 0 0 10px rgba(255, 255, 0, 0.5);
 	background-color: rgba(0, 0, 0, 0.66);
-	transform-origin: top left;
 	animation-name: glow;
 	animation-duration: 5s;
 	animation-iteration-count: infinite;
@@ -103,8 +102,8 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 }
 
 .container-left {
-	transform-origin: top left;
-	transform: matrix3d(1.2, 0.2, 0, 0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
+	transform-origin: center left;
+	transform: matrix3d(1.2, 0, 0, 0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
 	left: 0;
 	top: 0;
 	width: 50vw;
@@ -113,8 +112,8 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 }
 
 .container-right {
-	transform-origin: top right;
-	transform: matrix3d(1.2, -0.2, 0, -0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
+	transform-origin: center right;
+	transform: matrix3d(1.2, 0, 0, -0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
 	right: 0;
 	top: 0;
 	width: 50vw;
