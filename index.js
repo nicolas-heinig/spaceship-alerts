@@ -13,7 +13,9 @@ app.get("/sender", (req, res) => {
   res.sendFile(__dirname + "/views/sender.html");
 });
 
-app.use(express.static('public'));
+app.get("/css/style.css", (req, res) => {
+  res.sendFile(__dirname + "/public/css/style.css");
+});
 
 io.on("connection", (socket) => {
   console.log("THERES A CONNECTION");
