@@ -13,6 +13,8 @@ app.get("/sender", (req, res) => {
   res.sendFile(__dirname + "/views/sender.html");
 });
 
+app.use(express.static('public'));
+
 io.on("connection", (socket) => {
   console.log("THERES A CONNECTION");
 
