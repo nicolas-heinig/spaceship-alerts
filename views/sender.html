@@ -42,8 +42,9 @@
 <script>
   const socket = io();
   const roomBox = document.getElementById("room");
-  const typeBox = document.querySelector('[name="type"]:checked');
   const textBox = document.getElementById("box");
+
+  let typeBox = document.querySelector('[name="type"]:checked');
 
   const send = () => {
     let payload = {
