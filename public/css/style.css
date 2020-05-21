@@ -1,3 +1,12 @@
+body {
+    --main-hud-color: #ff9;
+    --main-hud-glow: 0 0 10px rgba(255, 255, 0, 0.5);
+    --alert-color: #f90;
+    --alert-glow: 0 0 10px rgba(255, 128, 0, 0.5);
+    --danger-color: #f66;
+    --danger-glow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
 
 @keyframes glow {
@@ -21,8 +30,8 @@ body {
 	overflow: hidden;
 	margin: 0;
 	padding: 0;
-	color: #ff9;
-	text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+	color: var(--main-hud-color);
+	text-shadow: var(--main-hud-glow);
 }
 
 body::before {
@@ -32,7 +41,7 @@ body::before {
 	position: absolute;
 	background-image: url(https://media.giphy.com/media/mX1bWOEGPIAY1yhmKI/giphy.gif);
 	background-size: cover;
-	filter: opacity(0.125);
+	filter: opacity(0.2);
 	left: 0;
 	top: 0;
 	background-position: center center;
@@ -48,12 +57,12 @@ input, select, textarea, button {
 	padding: .375rem .75rem;
 	font-size: 18px;
 	line-height: 1.5;
-	color: #ff9;
+	color: var(--main-hud-color);
 	background-color: transparent;
-	border: 2px solid #ff9;
+	border: 2px solid var(--main-hud-color);
 	border-radius: 10px;
 	transition: all 0.3s ease;
-	box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset, 0 0 10px rgba(255, 255, 0, 0.5);
+	box-shadow: var(--main-hud-glow) inset, var(--main-hud-glow);
 }
 
 input, select, textarea {
@@ -94,9 +103,9 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 	padding: 20px 15px;
 	overflow: hidden;
 	position: fixed;
-	border: 2px solid #ff9;
+	border: 2px solid var(--main-hud-color);
 	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset, 0 0 10px rgba(255, 255, 0, 0.5);
+	box-shadow: var(--main-hud-glow) inset, var(--main-hud-glow);
 	background-color: rgba(0, 0, 0, 0.66);
 	animation-name: glow;
 	animation-duration: 5s;
@@ -139,9 +148,6 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 	background-color: transparent;
 	border: 2px solid #fff;
 	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset, 0 0 10px rgba(255, 255, 255, 0.5);
-	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-	color: #fff;
 	font-family: monospace;
 	font-size: 18px;
 }
@@ -165,10 +171,10 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 }
 
 .info {
-	color: #ff9;
-	border-color: #ff9;
-	box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) inset, 0 0 10px rgba(255, 255, 0, 0.5);
-	text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+	color: var(--main-hud-color);
+	border-color: var(--main-hud-color);
+	box-shadow: var(--main-hud-glow) inset, var(--main-hud-glow);
+	text-shadow: var(--main-hud-glow);
 }
 
 .info::before {
@@ -176,10 +182,10 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 }
 
 .alert {
-	color: #f90;
-	border-color: #f90;
-	box-shadow: 0 0 10px rgba(255, 128, 0, 0.5) inset, 0 0 10px rgba(255, 128, 0, 0.5);
-	text-shadow: 0 0 10px rgba(255, 128, 0, 0.5);
+	color: var(--alert-color);
+	border-color: var(--alert-color);
+	box-shadow: var(--alert-glow) inset, var(--alert-glow);
+	text-shadow: var(--alert-glow);
 }
 
 .alert::before {
@@ -187,10 +193,10 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 }
 
 .danger {
-	color: #f66;
-	border-color: #f66;
-	box-shadow: 0 0 10px rgba(255, 0, 0, 0.5) inset, 0 0 10px rgba(255, 0, 0, 0.5);
-	text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+	color: var(--danger-color);
+	border-color: var(--danger-color);
+	box-shadow: var(--danger-glow) inset, var(--danger-glow);
+	text-shadow: var(--danger-glow);
 }
 
 .danger::before {
