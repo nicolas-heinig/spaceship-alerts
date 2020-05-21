@@ -17,14 +17,16 @@
   socket.on("connect", () => socket.emit("join_room", room));
 
   socket.on("send_dashboard", (data) => {
-    let card = document.createElement("div");
-    card.classList.add("card", data.type);
+    if (data.text.length > 0) {
+      let card = document.createElement("div");
+      card.classList.add("card", data.type);
 
-    let pre = document.createElement("div");
-    pre.innerText = data.text;
+      let pre = document.createElement("div");
+      pre.innerText = data.text;
 
-    card.appendChild(pre);
-    container.insertBefore(card, container.childNodes[0]);
+      card.appendChild(pre);
+      container.insertBefore(card, container.childNodes[0]);
+    }
 
     if (container.childNodes.length > 10) {
       container.childNodes[container.childNodes.length - 1].remove();
