@@ -66,6 +66,10 @@ textarea {
 	min-height: 6rem;
 }
 
+select option {
+    color: #000;
+}
+
 button {
 	display: inline-block;
 	text-align: center;
@@ -145,11 +149,13 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 .card::before {
 	position: absolute;
 	left: 0.4rem;
-	top: 0.8rem;
+	top: 1.4rem;
 	margin-top: -1rem;
 	width: 2rem;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	text-align: center;
+	font-family: "Font Awesome 5 Free";
+	font-weight: bold;
 }
 
 .info,
@@ -166,7 +172,7 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 }
 
 .info::before {
-	content: "✔";
+	content: "\f129";
 }
 
 .alert {
@@ -177,7 +183,7 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 }
 
 .alert::before {
-	content: "⚠";
+	content: "\f12a";
 }
 
 .danger {
@@ -188,5 +194,5 @@ input:focus, select:focus, textarea:focus, button:hover, button:focus {
 }
 
 .danger::before {
-	content: "☠";
+	content: "\f54c";
 }
