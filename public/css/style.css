@@ -53,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }
 
-input, select, textarea, button {
+input, select, textarea, button, input[type="radio"] + label {
 	padding: .375rem .75rem;
 	font-size: 18px;
 	line-height: 1.5;
@@ -69,6 +69,10 @@ input, select, textarea {
 	display: block;
 	width: 100%;
 	height: calc(1.5em + .75rem + 2px);
+}
+
+input[type="radio"] {
+    display: none;
 }
 
 textarea {
@@ -92,6 +96,12 @@ button {
 input:focus, select:focus, textarea:focus, button:hover, button:focus {
 	outline: none;
 	filter: brightness(1.5);
+}
+
+input[type="radio"]:checked + label {
+    background-color: var(--main-hud-color);
+    color: #000;
+    text-shadow: 0 0 1px #000;
 }
 
 .container {

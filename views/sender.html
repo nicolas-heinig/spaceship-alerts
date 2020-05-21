@@ -8,23 +8,28 @@
 
 	<label for="room">Room ID</label>
 	<br/>
-	<input id="room"/>
+	<input id="room" name="room"/>
+
 	<br/>
 	<br/>
 
-	<label for="select">Type</label>
+	<label>Type</label>
 	<br/>
-	<select id="select">
-		<option value="info">Info</option>
-		<option value="alert">Alert</option>
-		<option value="danger">Danger</option>
-	</select>
+	<div>
+		<input type="radio" id="info" name="type" value="info">
+		<label for="info">Info</label>
+		<input type="radio" id="alert" name="type" value="alert">
+		<label for="alert">Alert</label>
+		<input type="radio" id="danger" name="type" value="danger">
+		<label for="danger">Danger</label>
+	</div>
+
+	<br/>
 	<br/>
 
-	<label for <label for="textbox">Message</label>
+	<label for="textbox">Message</label>
 	<br/>
-	<textarea cols="50" id="box" rows="4" type="text"></textarea>
-	<br/>
+	<textarea id="textbox" name="textbox" cols="50" id="box" rows="4" type="text"></textarea>
 
 	<br/>
 	<br/>
@@ -37,13 +42,13 @@
 <script>
   const socket = io();
   const roomBox = document.getElementById("room");
-  const selectBox = document.getElementById("select");
+  const typeBox = document.querySelector('[name="type"]:checked');
   const textBox = document.getElementById("box");
 
   const send = () => {
     let payload = {
       room: roomBox.value,
-      type: selectBox.value,
+      type: typeBox.value,
       text: textBox.value,
     };
 
