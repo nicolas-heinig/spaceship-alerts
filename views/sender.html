@@ -44,18 +44,15 @@
   const roomBox = document.getElementById("room");
   const textBox = document.getElementById("box");
 
-  let typeBox = document.querySelector('[name="type"]:checked');
-
   const send = () => {
     let payload = {
       room: roomBox.value,
-      type: typeBox.value,
+      type: document.querySelector('[name="type"]:checked').value,
       text: textBox.value,
     };
 
     socket.emit("send_sender", payload);
 
-    selectBox.value = "info";
     textBox.value = "";
   };
 </script>
