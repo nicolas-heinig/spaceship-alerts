@@ -29,7 +29,7 @@
 
 	<label for="textbox">Message</label>
 	<br/>
-	<textarea id="textbox" name="textbox" cols="50" id="box" rows="4" type="text"></textarea>
+	<textarea id="textbox" name="textbox" cols="50" rows="4" type="text"></textarea>
 
 	<br/>
 	<br/>
@@ -42,7 +42,7 @@
 <script>
   const socket = io();
   const roomBox = document.getElementById("room");
-  const textBox = document.getElementById("box");
+  const textBox = document.getElementById("textbox");
 
   const send = () => {
     let payload = {

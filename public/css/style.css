@@ -63,6 +63,7 @@ input, select, textarea, button, input[type="radio"] + label {
 	border-radius: 10px;
 	transition: all 0.3s ease;
 	box-shadow: var(--main-hud-glow) inset, var(--main-hud-glow);
+	position: relative;
 }
 
 input, select, textarea {
