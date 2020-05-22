@@ -1,48 +1,75 @@
 <head>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+    crossorigin="anonymous"
+  />
 </head>
 <div class="container container-center">
-	<h1>Sender View</h1>
+  <h1>Sender View</h1>
 
-	<label for="room">Room ID</label>
-	<br/>
-	<input id="room" name="room"/>
+  <label for="room">Room ID</label>
+  <br />
+  <input id="room" name="room" />
 
-	<br/>
-	<br/>
+  <br />
+  <br />
 
-	<label>Type</label>
-	<br/>
-	<div>
-		<input type="radio" id="info" name="type" value="info">
-		<label for="info">Info</label>
-		<input type="radio" id="alert" name="type" value="alert">
-		<label for="alert">Alert</label>
-		<input type="radio" id="danger" name="type" value="danger">
-		<label for="danger">Danger</label>
-	</div>
+  <label>Type</label>
+  <br />
+  <div>
+    <input type="radio" id="info" name="type" value="info" />
+    <label for="info">Info</label>
+    <input type="radio" id="alert" name="type" value="alert" />
+    <label for="alert">Alert</label>
+    <input type="radio" id="danger" name="type" value="danger" />
+    <label for="danger">Danger</label>
+  </div>
 
-	<br/>
-	<br/>
+  <br />
+  <br />
 
-	<label for="textbox">Message</label>
-	<br/>
-	<textarea id="textbox" name="textbox" cols="50" rows="4" type="text"></textarea>
+  <label for="textbox">Message</label>
+  <br />
+  <textarea
+    id="textbox"
+    name="textbox"
+    cols="50"
+    rows="4"
+    type="text"
+  ></textarea>
 
-	<br/>
-	<br/>
+  <br />
+  <br />
 
-	<button id="input" onclick="send()">
-		Send!
-	</button>
+  <button id="input" onclick="send()">
+    Send!
+  </button>
+
+  <br />
+  <br />
+
+  <label>Presets</label>
+  <ul id="presetsContainer"></ul>
+  <br />
+  <input id="presetbox" placeholder="Enter a new Preset" />
+  <br />
+  <button onclick="createPreset()">
+    Save Preset
+  </button>
 </div>
 <script src="/socket.io/socket.io.js"></script>
 <script>
   const socket = io();
   const roomBox = document.getElementById("room");
   const textBox = document.getElementById("textbox");
+  const presetsContainer = document.getElementById("presetsContainer");
+  const presetsJson = localStorage.getItem("presets");
+
+  let presets = presetsJson === "" ? [] : JSON.parse(presetsJson);
 
   const send = () => {
     let payload = {
@@ -54,5 +81,49 @@
     socket.emit("send_sender", payload);
 
     textBox.value = "";
+    console.log("Send Message:", payload);
   };
+
+  const createPreset = () => {
+    const presetBox = document.getElementById("presetbox");
+    const message = presetBox.value;
+
+    presets.push(message);
+    localStorage.setItem("presets", JSON.stringify(presets));
+    presetBox.value = "";
+    addToPresetContainer(message);
+  };
+
+  const selectPreset = (e) => {
+    const message = e.target.innerText;
+    textBox.value = message;
+  };
+
+  const removePreset = (e) => {
+    const message = e.target.parentNode.firstChild.innerText;
+    presets = presets.filter((item) => item !== message);
+    localStorage.setItem("presets", JSON.stringify(presets));
+
+    presetsContainer.textContent = "";
+    presets.forEach(addToPresetContainer);
+  };
+
+  const addToPresetContainer = (message) => {
+    let item = document.createElement("li");
+    item.classList.add("preset-item");
+
+    let sendButton = document.createElement("button");
+    sendButton.innerText = message;
+    sendButton.addEventListener("click", selectPreset);
+    item.appendChild(sendButton);
+
+    let removeIcon = document.createElement("i");
+    removeIcon.setAttribute("class", "fas fa-trash-alt remove-preset");
+    removeIcon.addEventListener("click", removePreset);
+    item.appendChild(removeIcon);
+
+    presetsContainer.appendChild(item);
+  };
+
+  presets.forEach(addToPresetContainer);
 </script>
