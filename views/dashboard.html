@@ -72,4 +72,8 @@
       container.childNodes[container.childNodes.length - 1].remove();
     }
   });
+	
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    document.body.setAttribute("data-loaded", "true");
+  });
 </script>
