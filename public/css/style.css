@@ -296,12 +296,3 @@ li.danger-text li::after {
 li.danger-text::after {
     content: "\f057" !important;
 }
-
-.preset-item {
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-.remove-preset {
-	margin-left: 10px;
-}
