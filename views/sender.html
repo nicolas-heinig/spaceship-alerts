@@ -42,15 +42,6 @@
 			type="text"
 	></textarea>
 
-	<br/>
-	<br/>
-
-	<label>Schiff</label>
-	<div>
-		<button onclick="sendStatus('component', 'repair')">Repair</button>
-		<button onclick="sendStatus('component', 'warn')">Warn</button>
-		<button onclick="sendStatus('component', 'destroy')">Destroy</button>
-	</div>
 
 	<br/>
 	<br/>
@@ -58,6 +49,85 @@
 	<button id="input" onclick="send()">
 		Send!
 	</button>
+
+	<br/>
+	<br/>
+
+	<details>
+		<summary>Shiphull</summary>
+
+
+	<label>Ganzes Schiff</label>
+	<div>
+		<button onclick="sendStatus('component', 'repair')">Repair</button>
+		<button onclick="sendStatus('component', 'warn')">Warn</button>
+		<button onclick="sendStatus('component', 'destroy')">Destroy</button>
+	</div>
+
+	<br/>
+
+	<label>Core</label>
+	<div>
+		<button onclick="sendStatus('component-core', 'repair')">Repair</button>
+		<button onclick="sendStatus('component-core', 'warn')">Warn</button>
+		<button onclick="sendStatus('component-core', 'destroy')">Destroy</button>
+	</div>
+
+	<br/>
+
+		<label>Oxygen</label>
+		<div>
+			<button onclick="sendStatus('component-core-oxygen', 'repair')">Repair</button>
+			<button onclick="sendStatus('component-core-oxygen', 'warn')">Warn</button>
+			<button onclick="sendStatus('component-core-oxygen', 'destroy')">Destroy</button>
+		</div>
+
+		<br/>
+
+		<label>Gravity</label>
+		<div>
+			<button onclick="sendStatus('component-core-gravity', 'repair')">Repair</button>
+			<button onclick="sendStatus('component-core-gravity', 'warn')">Warn</button>
+			<button onclick="sendStatus('component-core-gravity', 'destroy')">Destroy</button>
+		</div>
+
+		<br/>
+
+		<label>Antrieb</label>
+		<div>
+			<button onclick="sendStatus('component-core-power', 'repair')">Repair</button>
+			<button onclick="sendStatus('component-core-power', 'warn')">Warn</button>
+			<button onclick="sendStatus('component-core-power', 'destroy')">Destroy</button>
+		</div>
+
+		<br/>
+
+	<label>Navigation</label>
+	<div>
+		<button onclick="sendStatus('component-navigation', 'repair')">Repair</button>
+		<button onclick="sendStatus('component-navigation', 'warn')">Warn</button>
+		<button onclick="sendStatus('component-navigation', 'destroy')">Destroy</button>
+	</div>
+
+	<br/>
+
+	<label>Science</label>
+	<div>
+		<button onclick="sendStatus('component-science', 'repair')">Repair</button>
+		<button onclick="sendStatus('component-science', 'warn')">Warn</button>
+		<button onclick="sendStatus('component-science', 'destroy')">Destroy</button>
+	</div>
+
+	<br/>
+
+	<label>Weapons</label>
+	<div>
+		<button onclick="sendStatus('component-weapons', 'repair')">Repair</button>
+		<button onclick="sendStatus('component-weapons', 'warn')">Warn</button>
+		<button onclick="sendStatus('component-weapons', 'destroy')">Destroy</button>
+	</div>
+
+	</details>
 
 	<br/>
 	<br/>
