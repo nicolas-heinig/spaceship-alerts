@@ -107,7 +107,7 @@ input[type="radio"]:checked + label, button:active {
     text-shadow: 0 0 1px #000;
 }
 
-body:not([data-gr-c-s-loaded="true"]) .container {
+body:not([data-loaded="true"]) .container {
     transform: rotateX(90deg);
     opacity: 0;
 }
