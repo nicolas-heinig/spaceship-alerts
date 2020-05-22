@@ -142,7 +142,6 @@ input[type="radio"]:checked + label, button:active {
 	right: 0;
 	top: 0;
 	width: 50vw;
-	flex-direction: column-reverse;
 	height: 80vh;
 }
 
@@ -150,6 +149,8 @@ input[type="radio"]:checked + label, button:active {
 	max-width: 500px;
 	margin-left: 50%;
 	transform: translateX(-50%);
+    max-height: 92vh;
+    overflow-y: auto;
 }
 
 .card {
@@ -214,4 +215,30 @@ input[type="radio"]:checked + label, button:active {
 
 .danger::before {
 	content: "\f54c";
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    line-height: 2em;
+    font-size: 26px;
+}
+
+li li {
+    padding-left: 1em;
+    margin-left: 1em;
+    position: relative;
+}
+
+li li::before {
+    content: "";
+    border-left: 2px solid var(--info-color);
+    border-bottom: 2px solid var(--info-color);
+    width: 1em;
+    height: 52em;
+    position: absolute;
+    top: -51.1em;
+    left: -0.5em;
 }
