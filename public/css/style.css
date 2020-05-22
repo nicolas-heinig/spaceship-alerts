@@ -246,22 +246,59 @@ body .container {
     font-size: 16px;
 }
 
+.info-text {
+    color: var(--info-color);
+    text-shadow: var(--info-glow);
+}
+
+.status-list li.info-text::before,
+.status-list .info-text li::before {
+    border-color: var(--info-color);
+}
+
+.alert-text {
+    color: var(--alert-color);
+    text-shadow: var(--alert-glow);
+}
+
+.status-list li.alert-text::before,
+.status-list .alert-text li::before {
+    border-color: var(--alert-color);
+}
+
+.danger-text {
+    color: var(--danger-color);
+    text-shadow: var(--danger-glow);
+}
+
+.status-list li.danger-text::before,
+.status-list .danger-text li::before {
+    border-color: var(--danger-color);
+}
+
 ul {
+    overflow: hidden;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+}
+
+.status-list {
     line-height: 2em;
     font-size: 26px;
 }
 
-li li {
+.status-list li {
     padding-left: 2.25em;
     margin-left: 1em;
     position: relative;
 }
 
-li li::before {
+.status-list > li {
+    margin-left: 0;
+}
+
+.status-list li::before {
     content: "";
     border-left: 2px solid var(--info-color);
     border-bottom: 2px solid var(--info-color);
@@ -273,34 +310,7 @@ li li::before {
     filter: blur(1px);
 }
 
-.info-text {
-    color: var(--info-color);
-    text-shadow: var(--info-glow);
-}
-
-.info-text li li::before {
-    border-color: var(--info-color);
-}
-
-.alert-text {
-    color: var(--alert-color);
-    text-shadow: var(--alert-glow);
-}
-
-.alert-text li li::before {
-    border-color: var(--alert-color);
-}
-
-.danger-text {
-    color: var(--danger-color);
-    text-shadow: var(--danger-glow);
-}
-
-.danger-text li li::before {
-    border-color: var(--danger-color);
-}
-
-li li::after {
+.status-list li::after {
     content: "\f058";
     position:absolute;
     left: 1em;
@@ -309,11 +319,16 @@ li li::after {
     font-weight: 400;
 }
 
-li.alert-text::after,
-li.danger-text li::after {
+.status-list > li::before {
+    content: none;
+}
+
+.status-list li.alert-text::after,
+.status-list li.danger-text li::after {
     content: "\f059";
 }
 
-li.danger-text::after {
+.status-list li.danger-text::after {
     content: "\f057" !important;
 }
+
