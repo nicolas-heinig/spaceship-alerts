@@ -107,16 +107,6 @@ input[type="radio"]:checked + label, button:active {
     text-shadow: 0 0 1px #000;
 }
 
-body:not([data-loaded="true"]) .container {
-    transform: rotateX(90deg);
-    opacity: 0;
-}
-
-body .container {
-    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out 0.3s;
-    opacity: 1;
-}
-
 .container {
 	display: flex;
 	flex-wrap: nowrap;
@@ -332,3 +322,28 @@ ul {
     content: "\f057" !important;
 }
 
+/* initialize */
+
+body .container {
+    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out 0.3s;
+    opacity: 1;
+}
+
+body:not([data-loaded="true"]) .container {
+    transform: rotateX(90deg);
+    opacity: 0;
+}
+
+#initialize {
+    transition: opacity 0.3s ease-in-out;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.66);
+    opacity: 0;
+}
+
+body:not([data-loaded="true"]) #initialize {
+    opacity: 1;
+}

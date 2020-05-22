@@ -4,6 +4,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
 
+<button id="initialize" onclick="initialize()">HUD initialisieren...</button>
+
 <div id="alerts" class="container container-left"></div>
 <div id="log" class="container container-right">
 	<ul class="status-list">
@@ -59,9 +61,9 @@
       card.appendChild(pre);
       container.insertBefore(card, container.childNodes[0]);
 	    
-        var aussage = new SpeechSynthesisUtterance(data.text);
-	    aussage.voice =speechSynthesis.getVoices()[2]
-window.speechSynthesis.speak(aussage);
+      var aussage = new SpeechSynthesisUtterance(data.text);
+      aussage.voice =speechSynthesis.getVoices()[2]
+      window.speechSynthesis.speak(aussage);
     }
 
     if (data.component) {
@@ -78,8 +80,8 @@ window.speechSynthesis.speak(aussage);
       container.childNodes[container.childNodes.length - 1].remove();
     }
   });
-	
-  document.addEventListener("DOMContentLoaded", function(event) { 
+
+  const initialize = () => {
     document.body.setAttribute("data-loaded", "true");
-  });
+  };
 </script>
