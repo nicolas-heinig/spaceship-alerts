@@ -185,7 +185,6 @@ input[type="radio"]:checked + label, button:active {
 }
 
 .info {
-	color: var(--info-color);
 	border-color: var(--info-color);
 	box-shadow: var(--info-glow) inset, var(--info-glow);
 	text-shadow: var(--info-glow);
@@ -236,7 +235,7 @@ ul {
 }
 
 li li {
-    padding-left: 1em;
+    padding-left: 2.25em;
     margin-left: 1em;
     position: relative;
 }
@@ -250,4 +249,50 @@ li li::before {
     position: absolute;
     top: -51.1em;
     left: -0.5em;
+    filter: blur(1px);
+}
+
+.info-text {
+    color: var(--info-color);
+    text-shadow: var(--info-glow);
+}
+
+.info-text li li::before {
+    border-color: var(--info-color);
+}
+
+.alert-text {
+    color: var(--alert-color);
+    text-shadow: var(--alert-glow);
+}
+
+.alert-text li li::before {
+    border-color: var(--alert-color);
+}
+
+.danger-text {
+    color: var(--danger-color);
+    text-shadow: var(--danger-glow);
+}
+
+.danger-text li li::before {
+    border-color: var(--danger-color);
+}
+
+li li::after {
+    content: "\f058";
+    position:absolute;
+    left: 1em;
+    top: -1px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+}
+
+li.alert-text::after,
+li.danger-text li::after {
+    content: "\f059";
+}
+
+li.danger-text::after {
+    content: "\f057" !important;
 }
