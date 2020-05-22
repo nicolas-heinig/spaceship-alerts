@@ -47,7 +47,7 @@
   socket.on("connect", () => socket.emit("join_room", room));
 
   socket.on("send_dashboard", (data) => {
-    if (data.text.length > 0) {
+    if (data.text && data.text.length > 0) {
       let card = document.createElement("div");
       card.classList.add("card", data.type);
 
