@@ -244,4 +244,8 @@
   };
 
   presets.forEach(addToPresetContainer);
+  
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    document.body.setAttribute("data-loaded", "true");
+  });
 </script>
