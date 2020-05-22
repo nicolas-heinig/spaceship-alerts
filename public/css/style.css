@@ -151,6 +151,7 @@ input[type="radio"]:checked + label, button:active {
 	transform: translateX(-50%);
     max-height: 92vh;
     overflow-y: auto;
+    display: block;
 }
 
 .card {
