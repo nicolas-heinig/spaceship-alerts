@@ -17,6 +17,10 @@ app.get("/css/style.css", (req, res) => {
   res.sendFile(__dirname + "/public/css/style.css");
 });
 
+app.get("/audio/me-too.mp3", (req, res) => {
+  res.sendFile(__dirname + "/public/audio/me-too.mp3");
+}); 	
+
 io.on("connection", (socket) => {
   console.log("THERES A CONNECTION");
 
