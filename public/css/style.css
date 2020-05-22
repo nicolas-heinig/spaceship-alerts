@@ -1,6 +1,8 @@
 body {
-    --main-hud-color: #ff9;
-    --main-hud-glow: 0 0 10px rgba(255, 255, 0, 0.5);
+    --main-hud-color: var(--info-color);
+    --main-hud-glow: var(--info-glow);
+    --info-color: #ff9;
+    --info-glow: 0 0 10px rgba(255, 255, 0, 0.5);
     --alert-color: #f90;
     --alert-glow: 0 0 10px rgba(255, 128, 0, 0.5);
     --danger-color: #f66;
@@ -182,10 +184,10 @@ input[type="radio"]:checked + label, button:active {
 }
 
 .info {
-	color: var(--main-hud-color);
-	border-color: var(--main-hud-color);
-	box-shadow: var(--main-hud-glow) inset, var(--main-hud-glow);
-	text-shadow: var(--main-hud-glow);
+	color: var(--info-color);
+	border-color: var(--info-color);
+	box-shadow: var(--info-glow) inset, var(--info-glow);
+	text-shadow: var(--info-glow);
 }
 
 .info::before {
