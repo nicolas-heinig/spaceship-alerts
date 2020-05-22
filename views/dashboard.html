@@ -7,7 +7,7 @@
 <div id="alerts" class="container container-left"></div>
 <div id="log" class="container container-right">
 	<ul>
-		<li>Schiffskomponenten
+		<li id="component">Schiff
 			<ul>
 				<li id="component-core">
 					Core
@@ -56,6 +56,16 @@
 
       card.appendChild(pre);
       container.insertBefore(card, container.childNodes[0]);
+    }
+
+    if (data.component) {
+        let component = document.getElementById(data.component);
+        if (data.status === "repair")
+			component.className = "";
+		else if (data.status === "warn")
+			component.className = "alert-text";
+		else if (data.status === "destroy")
+			component.className = "danger-text";
     }
 
     if (container.childNodes.length > 10) {
