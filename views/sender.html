@@ -11,15 +11,17 @@
 <div class="container container-center">
 	<h1>Command Center</h1>
 
+	<div class="form-group">
+		<label for="room">Room ID</label>
+		<div>
+			<input id="room" name="room"/>
+		</div>
+	</div>
+
+	<ul id="presetsContainer"></ul>
+
 	<details>
 		<summary>Messages</summary>
-
-		<div class="form-group">
-			<label for="room">Room ID</label>
-			<div>
-				<input id="room" name="room"/>
-			</div>
-		</div>
 
 		<div class="form-group">
 			<label>Type</label>
@@ -161,11 +163,10 @@
 		<div class="form-group">
 			<label>Presets</label>
 			<div>
-				<ul id="presetsContainer"></ul>
+				<input id="presetbox" placeholder="Enter a new Preset"/>
 			</div>
 		</div>
-		<input id="presetbox" placeholder="Enter a new Preset"/>
-		<br/>
+
 		<button onclick="createPreset()">
 			Save Preset
 		</button>
