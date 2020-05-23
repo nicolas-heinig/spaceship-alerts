@@ -131,9 +131,10 @@ input[type="radio"]:checked + label, button:active {
 	transform: matrix3d(1.2, 0, 0, 0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
 	left: 0;
 	top: 0;
-	width: 50vw;
 	flex-direction: column-reverse;
-	height: 80vh;
+    margin: 40px 20px;
+    width: calc(50vw - 61.5px);
+    height: calc(100vh - 122px);
 }
 
 .container-right {
@@ -141,8 +142,9 @@ input[type="radio"]:checked + label, button:active {
 	transform: matrix3d(1.2, 0, 0, -0.0006, 0, 0.99, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1);
 	right: 0;
 	top: 0;
-	width: 50vw;
-	height: 80vh;
+    margin: 40px 20px;
+	width: calc(50vw - 61.5px);
+    height: calc(100vh - 122px);
 }
 
 .container-center {
