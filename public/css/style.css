@@ -208,7 +208,6 @@ input[type="radio"]:checked + label, button:active {
 	background-color: transparent;
 	border: 2px solid #fff;
 	border-radius: 0.625rem;
-	font-family: monospace;
 	font-size: 1.125rem;
 }
 
