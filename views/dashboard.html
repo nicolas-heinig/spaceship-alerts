@@ -49,6 +49,8 @@
   socket.on("connect", () => socket.emit("join_room", room));
 
   socket.on("send_dashboard", (data) => {
+    new Audio('/audio/me-too.mp3').play();
+
     if (data.text && data.text.length > 0) {
       let card = document.createElement("div");
       card.classList.add("processing", "card", data.type);
@@ -61,13 +63,12 @@
       setTimeout(function(){
         card.classList.remove("processing");
       }, 10);
-	    
-      var aussage = new SpeechSynthesisUtterance(data.text);
-      aussage.voice =speechSynthesis.getVoices()[2]
-      window.speechSynthesis.speak(aussage);
+      setTimeout(function(){
+        var aussage = new SpeechSynthesisUtterance(data.text);
+        aussage.voice =speechSynthesis.getVoices()[2]
+        window.speechSynthesis.speak(aussage);
+      }, 200);
     }
-
-    new Audio('/audio/me-too.mp3').play();
 
     if (data.component) {
         let component = document.getElementById(data.component);
