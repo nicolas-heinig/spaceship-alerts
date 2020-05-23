@@ -376,7 +376,7 @@ ul {
 hr {
     border: 1px solid var(--main-hud-color);
     box-shadow: var(--main-hud-glow) inset, var(--main-hud-glow);
-    margin: 0.5rem 0;
+    margin: 1rem 0;
 }
 
 .form-group {
@@ -385,6 +385,11 @@ hr {
 
 .form-group > label + * {
     margin-top: 0.25rem;
+}
+
+summary {
+    margin-bottom: 1rem;
+    outline: none;
 }
 
 /* initialize */

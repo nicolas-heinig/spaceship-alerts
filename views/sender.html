@@ -11,35 +11,40 @@
 <div class="container container-center">
 	<h1>Command Center</h1>
 
-	<div class="form-group">
-		<label for="room">Room ID</label>
-		<div>
-			<input id="room" name="room"/>
-		</div>
-	</div>
+	<details>
+		<summary>Messages</summary>
 
-	<div class="form-group">
-		<label>Type</label>
-		<div>
-			<input checked="checked" id="info" name="type" type="radio" value="info"/>
-			<label for="info">Info</label>
-			<input id="alert" name="type" type="radio" value="alert"/>
-			<label for="alert">Alert</label>
-			<input id="danger" name="type" type="radio" value="danger"/>
-			<label for="danger">Danger</label>
+		<div class="form-group">
+			<label for="room">Room ID</label>
+			<div>
+				<input id="room" name="room"/>
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<label for="textbox">Message</label>
-		<div>
-			<textarea cols="50" id="textbox" name="textbox" rows="4" type="text"></textarea>
+		<div class="form-group">
+			<label>Type</label>
+			<div>
+				<input checked="checked" id="info" name="type" type="radio" value="info"/>
+				<label for="info">Info</label>
+				<input id="alert" name="type" type="radio" value="alert"/>
+				<label for="alert">Alert</label>
+				<input id="danger" name="type" type="radio" value="danger"/>
+				<label for="danger">Danger</label>
+			</div>
 		</div>
-	</div>
 
-	<button id="input" onclick="send()">
-		Send!
-	</button>
+		<div class="form-group">
+			<label for="textbox">Message</label>
+			<div>
+				<textarea cols="50" id="textbox" name="textbox" rows="4" type="text"></textarea>
+			</div>
+		</div>
+
+		<button id="input" onclick="send()">
+			Send!
+		</button>
+
+	</details>
 
 	<hr>
 
@@ -150,14 +155,18 @@
 
 	<hr>
 
-	<label>Presets</label>
-	<ul id="presetsContainer"></ul>
-	<br/>
-	<input id="presetbox" placeholder="Enter a new Preset"/>
-	<br/>
-	<button onclick="createPreset()">
-		Save Preset
-	</button>
+	<details>
+		<summary>Presets</summary>
+
+		<label>Presets</label>
+		<ul id="presetsContainer"></ul>
+		<br/>
+		<input id="presetbox" placeholder="Enter a new Preset"/>
+		<br/>
+		<button onclick="createPreset()">
+			Save Preset
+		</button>
+	</details>
 </div>
 <script src="/socket.io/socket.io.js"></script>
 <script>
@@ -242,4 +251,9 @@
   document.addEventListener("DOMContentLoaded", function(event) { 
     document.body.setAttribute("data-loaded", "true");
   });
+
+
+
+
+
 </script>
