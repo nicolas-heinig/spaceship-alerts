@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }
 
-input, select, textarea, button, input[type="radio"] + label {
+input, select, textarea, button, .remove-preset, input[type="radio"] + label {
 	padding: .375rem .75rem;
 	font-size: 1.125rem;
 	line-height: 1.5;
@@ -113,7 +113,7 @@ select option {
     color: #000;
 }
 
-button {
+button, .remove-preset {
 	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
@@ -123,7 +123,7 @@ button {
 	user-select: none;
 }
 
-input:focus, select:focus, textarea:focus, button:hover, button:focus {
+input:focus, select:focus, textarea:focus, button:hover, button:focus, .remove-preset:hover {
 	outline: none;
 	filter: brightness(1.5);
 }
@@ -277,15 +277,22 @@ input[type="radio"]:checked + label, button:active {
 .preset-item {
     float: left;
     position: relative;
-    margin: 0px 30px 0.625rem 0;
+    margin: 0px 1rem 0.625rem 0;
+}
+
+.preset-item > *:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.preset-item > *:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
 }
 
 .remove-preset {
-	margin-left: 0.625rem;
-	position: absolute;
-    top: 0;
-    right: -16px;
-    font-size: 16px;
+    line-height: 1.5 !important;
 }
 
 .info-text {

@@ -158,9 +158,12 @@
 	<details>
 		<summary>Presets</summary>
 
-		<label>Presets</label>
-		<ul id="presetsContainer"></ul>
-		<br/>
+		<div class="form-group">
+			<label>Presets</label>
+			<div>
+				<ul id="presetsContainer"></ul>
+			</div>
+		</div>
 		<input id="presetbox" placeholder="Enter a new Preset"/>
 		<br/>
 		<button onclick="createPreset()">
@@ -251,6 +254,7 @@
   document.addEventListener("DOMContentLoaded", function(event) { 
     document.body.setAttribute("data-loaded", "true");
   });
+
 
 
 
