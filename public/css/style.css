@@ -389,19 +389,16 @@ hr {
 }
 
 summary {
-    margin-bottom: 1rem;
     outline: none;
     cursor: pointer;
 }
 
 details {
-    height: 1.2rem;
     overflow: hidden;
-    transition: height 0.3s ease;
 }
 
-details[open] {
-    height: 100%;
+details[open] summary{
+    margin-bottom: 1rem;
 }
 
 /* initialize */
