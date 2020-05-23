@@ -175,6 +175,7 @@
   const presetsJson = localStorage.getItem("presets");
 
   let presets = presetsJson === null ? [] : JSON.parse(presetsJson);
+  roomBox.value = prompt("Please enter a Room ID");
 
   const send = () => {
     let payload = {
