@@ -90,6 +90,10 @@ input, select, textarea, button, input[type="radio"] + label {
 	position: relative;
 }
 
+input[type="radio"] + label {
+    line-height: 2.25;
+}
+
 input, select, textarea {
 	display: block;
 	width: 100%;
@@ -367,6 +371,20 @@ ul {
 
 .status-list li.danger-text::after {
     content: "\f057" !important;
+}
+
+hr {
+    border: 1px solid var(--main-hud-color);
+    box-shadow: var(--main-hud-glow) inset, var(--main-hud-glow);
+    margin: 0.5rem 0;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group > label + * {
+    margin-top: 0.25rem;
 }
 
 /* initialize */
