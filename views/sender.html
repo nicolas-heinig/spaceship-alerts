@@ -20,6 +20,8 @@
 
 	<ul id="presetsContainer"></ul>
 
+	<hr>
+
 	<details>
 		<summary>Messages</summary>
 
@@ -222,6 +224,7 @@
   const selectPreset = (e) => {
     const message = e.target.innerText;
     textBox.value = message;
+    send();
   };
 
   const removePreset = (e) => {
