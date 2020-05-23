@@ -199,12 +199,19 @@ input[type="radio"]:checked + label, button:active {
 	width: auto;
 	padding: 0.625rem 0.875rem 0.625rem 0.875rem;
 	margin-top: 1.25rem;
-	transition: 0.3s;
+	transition: all ease-in-out 0.3s;
 	background-color: transparent;
 	border: 2px solid #fff;
 	border-radius: 0.625rem;
 	font-family: monospace;
 	font-size: 1.125rem;
+}
+
+.card.processing {
+    transform: scale(0);
+    margin: -1.125rem 0 0 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .card::before {

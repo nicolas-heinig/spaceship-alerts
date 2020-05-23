@@ -53,13 +53,14 @@
 	  
     if (data.text && data.text.length > 0) {
       let card = document.createElement("div");
-      card.classList.add("card", data.type);
+      card.classList.add("processing", "card", data.type);
 
       let pre = document.createElement("div");
       pre.innerText = data.text;
 
       card.appendChild(pre);
       container.insertBefore(card, container.childNodes[0]);
+      card.classList.remove("processing");
 	    
       var aussage = new SpeechSynthesisUtterance(data.text);
       aussage.voice =speechSynthesis.getVoices()[2]
