@@ -150,6 +150,12 @@ input[type="radio"]:checked + label, button:active {
     animation-timing-function: ease-in-out;
 }
 
+body.red-alert .container {
+	animation-duration: 1.25s;
+	border: 2px solid var(--danger-color);
+	box-shadow: var(--danger-glow) inset, var(--danger-glow);
+}
+
 .container-left,
 .container-right {
     width: calc(100vw - 3.3rem - 4px);

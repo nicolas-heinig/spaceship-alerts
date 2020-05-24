@@ -49,7 +49,7 @@
   socket.on("connect", () => socket.emit("join_room", room));
 
   socket.on("send_dashboard", (data) => {
-    new Audio('/audio/me-too.mp3').play();
+    new Audio('/audio/notification.mp3').play();
 
     if (data.text && data.text.length > 0) {
       let card = document.createElement("div");
